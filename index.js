@@ -22,8 +22,22 @@ const Commands = [
 
 
 for (let cmd of Commands) {
+  if (!USER_CMD) {
+    const noUserCmdMessage = 'Привет, пользователь!\n' +
+      'Эта программа будет запускать сервер «Кексобукинг».\nАвтор: Кучеренко Игорь.';
+
+    console.log(noUserCmdMessage);
+    process.exit(0);
+  }
+
   if (cmd.input === USER_CMD) {
     cmd.action();
     process.exit(0);
   }
 }
+
+const unknownCmdMessage = 'Неизвестная команда "' + USER_CMD + ' ".\n' +
+  'Чтобы прочитать правила использования приложения, наберите "--help"';
+
+console.log(unknownCmdMessage);
+process.exit(1);
