@@ -36,7 +36,7 @@ for (let cmd of Commands) {
   }
 }
 
-const unknownCmdMessage = 'Неизвестная команда "' + USER_CMD + ' ".\n' +
+const unknownCmdMessage = 'Неизвестная команда "' + USER_CMD + '".\n' +
   'Чтобы прочитать правила использования приложения, наберите "--help"';
 
 console.error(unknownCmdMessage);
