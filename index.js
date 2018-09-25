@@ -20,24 +20,27 @@ const Commands = [
   },
 ];
 
-
-for (let cmd of Commands) {
+const startApp = function () {
   if (!USER_CMD) {
     const noUserCmdMessage = 'Привет, пользователь!\n' +
       'Эта программа будет запускать сервер «Кексобукинг».\nАвтор: Кучеренко Игорь.';
 
     console.log(noUserCmdMessage);
-    process.exit(0);
+    return;
   }
 
-  if (cmd.input === USER_CMD) {
-    cmd.action();
-    process.exit(0);
+  for (let cmd of Commands) {
+    if (cmd.input === USER_CMD) {
+      cmd.action();
+      return;
+    }
   }
-}
 
-const unknownCmdMessage = 'Неизвестная команда "' + USER_CMD + '".\n' +
-  'Чтобы прочитать правила использования приложения, наберите "--help"';
+  const unknownCmdMessage = 'Неизвестная команда "' + USER_CMD + '".\n' +
+    'Чтобы прочитать правила использования приложения, наберите "--help"';
 
-console.error(unknownCmdMessage);
-process.exit(1);
+  console.error(unknownCmdMessage);
+  process.exit(1);
+};
+
+startApp();
