@@ -39,5 +39,5 @@ for (let cmd of Commands) {
 const unknownCmdMessage = 'Неизвестная команда "' + USER_CMD + ' ".\n' +
   'Чтобы прочитать правила использования приложения, наберите "--help"';
 
-console.log(unknownCmdMessage);
+console.error(unknownCmdMessage);
 process.exit(1);
