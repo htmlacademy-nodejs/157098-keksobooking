@@ -3,8 +3,8 @@
 const packageInfo = require(`../package.json`);
 
 module.exports = {
-  name: `version`,
-  description: `Shows program version`,
+  input: `--version`,
+  description: `Shows the program's version`,
   execute() {
     console.log(`v${packageInfo.version}`);
   }
