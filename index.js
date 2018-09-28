@@ -2,7 +2,7 @@
 
 const {commands} = require(`./src/commands`);
 
-const USER_CMD = process.argv[2];
+const PARAM = process.argv[2];
 const HELP_CMD = commands[`--help`];
 
 function reactOnUnknownCmd() {
@@ -11,8 +11,8 @@ function reactOnUnknownCmd() {
   process.exit(1);
 }
 
-function startApp(userCmd) {
-  if (!userCmd) {
+function startApp(param) {
+  if (!param) {
     console.log(`Hello, user!
 this program starts Keksobooking server.
 Author: Igor Kucherenko`);
@@ -20,11 +20,11 @@ Author: Igor Kucherenko`);
     return;
   }
 
-  if (userCmd && commands.hasOwnProperty(userCmd)) {
-    commands[userCmd].execute();
+  if (param && commands.hasOwnProperty(param)) {
+    commands[param].execute();
   } else {
     reactOnUnknownCmd();
   }
 }
 
-startApp(USER_CMD);
+startApp(PARAM);
