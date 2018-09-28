@@ -4,6 +4,7 @@ const versionCmd = require(`./version`);
 const authorCmd = require(`./author`);
 const descriptionCmd = require(`./description`);
 const licenseCmd = require(`./license`);
+const colors = require(`colors/safe`);
 
 const describedCommands = [
   versionCmd,
@@ -16,6 +17,6 @@ module.exports = {
   input: `--help`,
   description: `Shows possible commands`,
   execute() {
-    describedCommands.forEach((cmd) => console.log(`${cmd.input} - ${cmd.description}`));
+    describedCommands.forEach((cmd) => console.log(`${colors.grey(cmd.input)} - ${colors.green(cmd.description)}`));
   }
 };
