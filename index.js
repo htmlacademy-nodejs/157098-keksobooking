@@ -1,17 +1,19 @@
-const CURRENT_VERSION = '0.0.1';
+'use strict';
+
+const CURRENT_VERSION = `0.0.1`;
 const USER_CMD = process.argv[2];
 
 const commands = [
   {
-    input: '--help',
-    description: 'печатает этот текст',
+    input: `--help`,
+    description: `печатает этот текст`,
     action() {
       commands.forEach((cmd) => console.log(`${cmd.input} - ${cmd.description}`));
     },
   },
   {
-    input: '--version',
-    description: 'печатает версию приложения',
+    input: `--version`,
+    description: `печатает версию приложения`,
     action() {
       console.log(`v${CURRENT_VERSION}`);
     },
