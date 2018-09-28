@@ -7,11 +7,11 @@ const licenseCmd = require(`./license`);
 const helpCmd = require(`./help`);
 
 const commands = {
-  '--version': versionCmd,
-  '--author': authorCmd,
-  '--description': descriptionCmd,
-  '--license': licenseCmd,
-  '--help': helpCmd,
+  [versionCmd.input]: versionCmd,
+  [authorCmd.input]: authorCmd,
+  [descriptionCmd.input]: descriptionCmd,
+  [licenseCmd.input]: licenseCmd,
+  [helpCmd.input]: helpCmd,
 };
 
 module.exports = {
