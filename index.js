@@ -3,10 +3,11 @@
 const {commands} = require(`./src/commands`);
 
 const USER_CMD = process.argv[2];
+const HELP_CMD = commands[`--help`];
 
 function reactOnUnknownCmd() {
   console.error(`Unknown command! The list of possible commands is below:`);
-  commands[`--help`].execute();
+  HELP_CMD.execute();
   process.exit(1);
 }
 
