@@ -1,13 +1,13 @@
 'use strict';
 
 const {commands} = require(`./src/commands`);
+const helpCmd = require(`./src/help`);
 
-const PARAM = process.argv[2];
-const HELP_CMD = commands[`--help`];
+const inputParam = process.argv[2];
 
 function reactOnUnknownCmd() {
   console.error(`Unknown command! The list of possible commands is below:`);
-  HELP_CMD.execute();
+  helpCmd.execute();
   process.exit(1);
 }
 
@@ -27,4 +27,4 @@ Author: Igor Kucherenko`);
   }
 }
 
-startApp(PARAM);
+startApp(inputParam);
