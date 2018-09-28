@@ -1,0 +1,19 @@
+{
+  "name": "keksobooking",
+  "version": "0.0.1",
+  "description": "* Студент: [Игорь Кучеренко](https://up.htmlacademy.ru/nodejs/2/user/157098). * Наставник: [Сергей Вохмянин](https://htmlacademy.ru/profile/id530823).",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hotncold89/157098-keksobooking-1.git"
+  },
+  "author": "Igor Kucherenko",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hotncold89/157098-keksobooking-1/issues"
+  },
+  "homepage": "https://github.com/hotncold89/157098-keksobooking-1#readme"
+}
