@@ -1,11 +1,11 @@
 'use strict';
 
-const {commands} = require('./src/commands');
+const {commands} = require(`./src/commands`);
 
 const USER_CMD = process.argv[2];
 
 function reactOnUnknownCmd() {
-  const helpCmd = commands.find((cmd) => cmd.input === '--help');
+  const helpCmd = commands.find((cmd) => cmd.input === `--help`);
 
   console.error(`Unknown command! The list of possible commands is below:`);
   helpCmd.execute();
