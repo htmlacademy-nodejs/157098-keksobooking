@@ -9,7 +9,7 @@ const [majorV, minorV, patchV] = [...version.split(`.`)];
 
 module.exports = {
   input: `--version`,
-  description: `Shows the program's version`,
+  description: `Показывает текущую версию`,
   execute() {
     console.log(`v${colors.red(majorV)}.${colors.green(minorV)}.${colors.blue(patchV)}`);
   }

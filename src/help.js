@@ -15,7 +15,7 @@ const describedCommands = [
 
 module.exports = {
   input: `--help`,
-  description: `Shows possible commands`,
+  description: `Показывает список команд`,
   execute() {
     describedCommands.forEach((cmd) => console.log(`${colors.grey(cmd.input)} - ${colors.green(cmd.description)}`));
   }
