@@ -14,6 +14,6 @@ describe(`Shuffle array`, () => {
     const testDataSnapshot = [...testData];
     shuffleArray(testData);
 
-    assert.equal(testData, testDataSnapshot);
+    assert.deepEqual(testData, testDataSnapshot);
   });
 });
