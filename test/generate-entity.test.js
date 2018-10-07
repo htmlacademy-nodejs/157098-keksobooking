@@ -185,5 +185,26 @@ describe(`Generate entity`, () => {
     });
   });
 
+  describe(`Features property`, () => {
+    const property = `features`;
+    const features = entity.offer.features;
 
+    it(`Should be a property of "offer"`, () => {
+      assert.ok(entity.offer.hasOwnProperty(property));
+    });
+
+    it(`Should be array type`, () => {
+      assert.ok(Array.isArray(features));
+    });
+
+    it(`Features' elements should exist in provided mocked data`, () => {
+      const mockedData = mockedEntityData.offer.features;
+
+      for (const item of features) {
+        if (!mockedData.includes(item)) {
+          assert.fail(`${item} doesn't exist in mocked data`);
+        }
+      }
+    });
+  });
 });
