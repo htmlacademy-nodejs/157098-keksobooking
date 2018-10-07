@@ -83,6 +83,9 @@ const generateEntity = () => {
     y: getRandomIntInclusive(mockedEntityData.location.y.min, mockedEntityData.location.y.max),
   };
 
+  const shuffledFeatures = shuffleArray(mockedEntityData.offer.features);
+  const features = shuffledFeatures.slice(0, getRandomIntInclusive(0, shuffledFeatures.length));
+
   return {
     author: {
       avatar: `${mockedEntityData.author.avatar}/${generateString()}`
@@ -96,7 +99,7 @@ const generateEntity = () => {
       guests: getRandomIntInclusive(mockedEntityData.offer.guests.min, mockedEntityData.offer.guests.max),
       checkin: getRandomItem(mockedEntityData.offer.checkin),
       checkout: getRandomItem(mockedEntityData.offer.checkout),
-      features: shuffleArray(mockedEntityData.offer.features),
+      features,
       description: ``,
       photos: shuffleArray(mockedEntityData.offer.photos),
     },
