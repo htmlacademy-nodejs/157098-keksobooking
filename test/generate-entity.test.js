@@ -219,9 +219,9 @@ describe(`Generate entity`, () => {
         return acc;
       }, {});
 
-      const isDataNotUnique = Object.values(countedEntityFeatures).some((entityValue) => entityValue > 1);
+      const isDataUnique = Object.values(countedEntityFeatures).every((entityValue) => entityValue === 1);
 
-      if (isDataNotUnique) {
+      if (!isDataUnique) {
         assert.fail(`Data is not unique`);
       }
     });
