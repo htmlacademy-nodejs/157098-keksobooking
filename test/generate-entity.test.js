@@ -197,7 +197,7 @@ describe(`Generate entity`, () => {
       assert.ok(Array.isArray(features));
     });
 
-    it(`Features' elements should exist in provided mocked data`, () => {
+    it(`Features elements should exist in provided mocked data`, () => {
       const mockedData = mockedEntityData.offer.features;
 
       for (const item of features) {
@@ -205,6 +205,94 @@ describe(`Generate entity`, () => {
           assert.fail(`${item} doesn't exist in mocked data`);
         }
       }
+    });
+
+    it(`Features data should have unique elements`, () => {
+      const entityFeatures = entity.offer.features;
+      const countedEntityFeatures = entityFeatures.reduce((acc, feature) => {
+        if (!acc.hasOwnProperty(feature)) {
+          acc[feature] = 1;
+        } else {
+          acc[feature] += 1;
+        }
+
+        return acc;
+      }, {});
+
+      const isDataNotUnique = Object.values(countedEntityFeatures).some((entityValue) => entityValue > 1);
+
+      if (isDataNotUnique) {
+        assert.fail(`Data is not unique`);
+      }
+    });
+  });
+
+  describe(`Description property`, () => {
+    const property = `description`;
+    const description = entity.offer.description;
+
+    it(`Should be a property of "offer"`, () => {
+      assert.ok(entity.offer.hasOwnProperty(property));
+    });
+
+    it(`Should be a string`, () => {
+      assert.ok(typeof description === `string`);
+    });
+  });
+
+  describe(`Photos property`, () => {
+    const property = `photos`;
+    const photos = entity.offer.photos;
+
+    it(`Should be a property of "offer"`, () => {
+      assert.ok(entity.offer.hasOwnProperty(property));
+    });
+
+    it(`Should be array type`, () => {
+      assert.ok(Array.isArray(photos));
+    });
+
+    it(`Features elements should exist in provided mocked data`, () => {
+      const mockedData = mockedEntityData.offer.photos;
+
+      for (const item of photos) {
+        if (!mockedData.includes(item)) {
+          assert.fail(`${item} doesn't exist in mocked data`);
+        }
+      }
+    });
+  });
+
+  describe(`Location property`, () => {
+    const property = `location`;
+
+    it(`Should be a property of entity`, () => {
+      assert.ok(entity.hasOwnProperty(`${property}`));
+    });
+  });
+
+  describe(`x/y properties`, () => {
+    const location = entity.location;
+    const mockedLocation = mockedEntityData.location;
+
+    it(`Should be properties of location`, () => {
+      assert.ok(location.hasOwnProperty(`x`) && location.hasOwnProperty(`y`));
+    });
+
+    it(`x should be in [${mockedLocation.x.min}-${mockedLocation.x.max}] range`, () => {
+      assert.ok(location.x >= mockedLocation.x.min && location.x <= mockedLocation.x.max);
+    });
+
+    it(`y should be in [${mockedLocation.y.min}-${mockedLocation.y.max}] range`, () => {
+      assert.ok(location.y >= mockedLocation.y.min && location.y <= mockedLocation.y.max);
+    });
+  });
+
+  describe(`Date property`, () => {
+    const property = `date`;
+
+    it(`Should be a property of entity`, () => {
+      assert.ok(entity.hasOwnProperty(`${property}`));
     });
   });
 });
