@@ -89,7 +89,7 @@ const generateEntity = () => {
     },
     offer: {
       title: getRandomItem(mockedEntityData.offer.titles),
-      address: `${location.x} ${location.y}`,
+      address: `${location.x}, ${location.y}`,
       price: getRandomIntInclusive(mockedEntityData.offer.price.min, mockedEntityData.offer.price.max),
       types: getRandomItem(mockedEntityData.offer.types),
       rooms: getRandomIntInclusive(mockedEntityData.offer.rooms.min, mockedEntityData.offer.rooms.max),
