@@ -14,19 +14,19 @@ describe(`Generate entity`, () => {
     });
   });
 
-  describe(`Author property`, () => {
+  describe(`Author`, () => {
     const property = `author`;
 
-    it(`Property "${property}" should be a property of entity`, () => {
+    it(`Should be a property of entity`, () => {
       assert.ok(entity.hasOwnProperty(`${property}`));
     });
 
-    it(`Type of "${property}" property should be object`, () => {
+    it(`Should be object type`, () => {
       assert.ok(isObject(entity[property]));
     });
   });
 
-  describe(`Avatar property`, () => {
+  describe(`Avatar`, () => {
     const property = `avatar`;
     const avatar = entity.author.avatar;
     const baseUrl = `${mockedEntityData.author.avatar}/`;
@@ -46,7 +46,7 @@ describe(`Generate entity`, () => {
     });
   });
 
-  describe(`Offer property`, () => {
+  describe(`Offer`, () => {
     const property = `offer`;
 
     it(`Should be a property of entity`, () => {
@@ -58,7 +58,7 @@ describe(`Generate entity`, () => {
     });
   });
 
-  describe(`Title property`, () => {
+  describe(`Title`, () => {
     const property = `title`;
     const title = entity.offer.title;
 
@@ -75,7 +75,7 @@ describe(`Generate entity`, () => {
     });
   });
 
-  describe(`Address property`, () => {
+  describe(`Address`, () => {
     const property = `address`;
     const address = entity.offer.address;
     const location = entity.location;
@@ -89,7 +89,7 @@ describe(`Generate entity`, () => {
     });
   });
 
-  describe(`Price property`, () => {
+  describe(`Price`, () => {
     const property = `price`;
     const min = mockedEntityData.offer.price.min;
     const max = mockedEntityData.offer.price.max;
@@ -108,7 +108,7 @@ describe(`Generate entity`, () => {
     });
   });
 
-  describe(`Type property`, () => {
+  describe(`Type`, () => {
     const property = `type`;
     const type = entity.offer.type;
 
@@ -121,7 +121,7 @@ describe(`Generate entity`, () => {
     });
   });
 
-  describe(`Rooms property`, () => {
+  describe(`Rooms`, () => {
     const property = `rooms`;
     const rooms = entity.offer.rooms;
     const min = mockedEntityData.offer.rooms.min;
@@ -140,7 +140,7 @@ describe(`Generate entity`, () => {
     });
   });
 
-  describe(`Guests property`, () => {
+  describe(`Guests`, () => {
     const property = `guests`;
     const guests = entity.offer.guests;
     const min = mockedEntityData.offer.guests.min;
@@ -159,7 +159,7 @@ describe(`Generate entity`, () => {
     });
   });
 
-  describe(`Checkin property`, () => {
+  describe(`Checkin`, () => {
     const property = `checkin`;
     const checkin = entity.offer.checkin;
 
@@ -172,7 +172,7 @@ describe(`Generate entity`, () => {
     });
   });
 
-  describe(`Checkout property`, () => {
+  describe(`Checkout`, () => {
     const property = `checkout`;
     const checkout = entity.offer.checkout;
 
@@ -185,7 +185,7 @@ describe(`Generate entity`, () => {
     });
   });
 
-  describe(`Features property`, () => {
+  describe(`Features`, () => {
     const property = `features`;
     const features = entity.offer.features;
 
@@ -227,7 +227,7 @@ describe(`Generate entity`, () => {
     });
   });
 
-  describe(`Description property`, () => {
+  describe(`Description`, () => {
     const property = `description`;
     const description = entity.offer.description;
 
@@ -240,7 +240,7 @@ describe(`Generate entity`, () => {
     });
   });
 
-  describe(`Photos property`, () => {
+  describe(`Photos`, () => {
     const property = `photos`;
     const photos = entity.offer.photos;
 
@@ -263,7 +263,7 @@ describe(`Generate entity`, () => {
     });
   });
 
-  describe(`Location property`, () => {
+  describe(`Location`, () => {
     const property = `location`;
 
     it(`Should be a property of entity`, () => {
@@ -271,7 +271,7 @@ describe(`Generate entity`, () => {
     });
   });
 
-  describe(`x/y properties`, () => {
+  describe(`x/y`, () => {
     const location = entity.location;
     const mockedLocation = mockedEntityData.location;
 
@@ -288,7 +288,7 @@ describe(`Generate entity`, () => {
     });
   });
 
-  describe(`Date property`, () => {
+  describe(`Date`, () => {
     const property = `date`;
 
     it(`Should be a property of entity`, () => {
