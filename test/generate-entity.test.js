@@ -1,8 +1,8 @@
 'use strict';
 
 const assert = require(`assert`);
-const {generateEntity} = require(`../src/generate-entity`);
 const {mockedEntityData} = require(`../src/generate-entity`);
+const {generateEntity} = require(`../src/generate-entity`);
 const {isObject} = require(`../src/utils/is-object`);
 
 describe(`Generate entity`, () => {
@@ -36,7 +36,7 @@ describe(`Generate entity`, () => {
     });
 
     it(`Should be string type`, () => {
-      assert.equal(typeof avatar, `string`);
+      assert.ok(typeof avatar === `string`);
     });
 
     it(`Should have correct url`, () => {
@@ -76,11 +76,114 @@ describe(`Generate entity`, () => {
   });
 
   describe(`Address property`, () => {
+    const property = `address`;
     const address = entity.offer.address;
     const location = entity.location;
+
+    it(`Should be a property of "offer"`, () => {
+      assert.ok(entity.offer.hasOwnProperty(property));
+    });
 
     it(`Should have correct value`, () => {
       assert.equal(address, `${location.x}, ${location.y}`);
     });
   });
+
+  describe(`Price property`, () => {
+    const property = `price`;
+    const min = mockedEntityData.offer.price.min;
+    const max = mockedEntityData.offer.price.max;
+    const price = entity.offer.price;
+
+    it(`Should be a property of "offer"`, () => {
+      assert.ok(entity.offer.hasOwnProperty(property));
+    });
+
+    it(`Should be in number type`, () => {
+      assert.ok(typeof price === `number`);
+    });
+
+    it(`Should be in [${min}-${max}] range`, () => {
+      assert.ok(price >= min && price <= max);
+    });
+  });
+
+  describe(`Type property`, () => {
+    const property = `type`;
+    const type = entity.offer.type;
+
+    it(`Should be a property of "offer"`, () => {
+      assert.ok(entity.offer.hasOwnProperty(property));
+    });
+
+    it(`Should exist in provided mocked data`, () => {
+      assert.notEqual(mockedEntityData.offer.types.indexOf(type), -1);
+    });
+  });
+
+  describe(`Rooms property`, () => {
+    const property = `rooms`;
+    const rooms = entity.offer.rooms;
+    const min = mockedEntityData.offer.rooms.min;
+    const max = mockedEntityData.offer.rooms.max;
+
+    it(`Should be a property of "offer"`, () => {
+      assert.ok(entity.offer.hasOwnProperty(property));
+    });
+
+    it(`Should be in number type`, () => {
+      assert.ok(typeof rooms === `number`);
+    });
+
+    it(`Should be in [${min}-${max}] range`, () => {
+      assert.ok(rooms >= min && rooms <= max);
+    });
+  });
+
+  describe(`Guests property`, () => {
+    const property = `guests`;
+    const guests = entity.offer.guests;
+    const min = mockedEntityData.offer.guests.min;
+    const max = mockedEntityData.offer.guests.max;
+
+    it(`Should be a property of "offer"`, () => {
+      assert.ok(entity.offer.hasOwnProperty(property));
+    });
+
+    it(`Should be in number type`, () => {
+      assert.ok(typeof guests === `number`);
+    });
+
+    it(`Should be in [${min}-${max}] range`, () => {
+      assert.ok(guests >= min && guests <= max);
+    });
+  });
+
+  describe(`Checkin property`, () => {
+    const property = `checkin`;
+    const checkin = entity.offer.checkin;
+
+    it(`Should be a property of "offer"`, () => {
+      assert.ok(entity.offer.hasOwnProperty(property));
+    });
+
+    it(`Should exist in provided mocked data`, () => {
+      assert.notEqual(mockedEntityData.offer.checkin.indexOf(checkin), -1);
+    });
+  });
+
+  describe(`Checkout property`, () => {
+    const property = `checkout`;
+    const checkout = entity.offer.checkout;
+
+    it(`Should be a property of "offer"`, () => {
+      assert.ok(entity.offer.hasOwnProperty(property));
+    });
+
+    it(`Should exist in provided mocked data`, () => {
+      assert.notEqual(mockedEntityData.offer.checkout.indexOf(checkout), -1);
+    });
+  });
+
+
 });
