@@ -5,9 +5,6 @@ const {generateEntity} = require(`../src/generate-entity`);
 const {isObject} = require(`../src/utils/is-object`);
 
 describe(`Generate entity`, () => {
-  console.log(`TEST`, generateEntity());
-  console.log(`TEST2`, generateEntity());
-
   const entity = generateEntity();
 
   describe(`Entity`, () => {
