@@ -7,7 +7,7 @@ const {generateEntityDate} = require(`./utils/generate-entity-date`);
 
 const mockedEntityData = {
   author: {
-    avatar: `https://robohash.org/qqww`,
+    avatar: `https://robohash.org`,
   },
   offer: {
     titles: [
@@ -75,6 +75,8 @@ const mockedEntityData = {
   },
 };
 
+const generateString = () => Math.random().toString(36).substring(7);
+
 const generateEntity = () => {
   const location = {
     x: getRandomIntInclusive(mockedEntityData.location.x.min, mockedEntityData.location.x.max),
@@ -83,7 +85,7 @@ const generateEntity = () => {
 
   return {
     author: {
-      avatar: mockedEntityData.author.avatar
+      avatar: `${mockedEntityData.author.avatar}/${generateString()}`
     },
     offer: {
       title: getRandomItem(mockedEntityData.offer.titles),
